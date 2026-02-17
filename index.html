@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搶紅包</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Background Particles -->
+  <div class="particles-container" id="particles"></div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Confetti Container -->
+  <div class="confetti-container" id="confettiContainer"></div>
+
+  <!-- Result Modal -->
+  <div class="modal-overlay" id="resultModal">
+    <div class="modal">
+      <span class="modal-emoji" id="modalEmoji"></span>
+      <h2 id="modalTitle">恭喜！</h2>
+      <p class="prize-text" id="modalPrize"></p>
+      <button class="btn btn-gold" onclick="closeModal()">太棒了！</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>搶紅包</h1>
+      <p class="subtitle">手氣最旺的就是你！</p>
+    </div>
+
+    <!-- Name Input Screen -->
+    <div id="nameScreen" class="name-screen">
+      <span class="big-emoji">🧧</span>
+      <h2>輸入你的名字開始搶！</h2>
+      <div class="name-input-group">
+        <input type="text" id="nameInput" placeholder="你的名字" maxlength="20"
+               onkeydown="if(event.key==='Enter')enterGame()">
+        <button class="btn btn-gold" onclick="enterGame()">進入</button>
+      </div>
+    </div>
+
+    <!-- Main Game Screen -->
+    <div id="gameScreen" style="display:none;">
+      <!-- Already Grabbed Banner -->
+      <div id="grabbedBanner" class="grabbed-banner" style="display:none;">
+        <span class="emoji">🎉</span>
+        <p class="text">你已經搶過紅包了！</p>
+        <p class="text">你搶到了 <span class="prize-name" id="grabbedPrizeName"></span></p>
+      </div>
+
+      <!-- Loading -->
+      <div id="loadingScreen" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <span>載入中...</span>
+      </div>
+
+      <!-- Prize Cards -->
+      <div id="prizesSection" style="display:none;">
+        <h3 class="section-title">🧧 選一個紅包</h3>
+        <div class="prizes-grid" id="prizesGrid"></div>
+      </div>
+
+      <!-- Records -->
+      <div id="recordsSection" style="display:none;">
+        <h3 class="section-title">📜 搶紅包紀錄</h3>
+        <div class="records-list" id="recordsList"></div>
+      </div>
+    </div>
+
+    <!-- Footer Nav -->
+    <div class="footer-nav">
+      <a href="admin.html">管理後台</a>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
